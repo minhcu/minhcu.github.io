@@ -22,11 +22,12 @@ span{
     max-width: 480px;
     max-height: 360px;
     overflow: hidden;
+    cursor: pointer;
 }
 .apollo-box img{
     opacity: 0.95;
-    transform: scale(1.02);
-    transition: 0.2s;
+    transform: scale(1.05);
+    transition: 0.4s;
 }
 .apollo-box:hover img{
     opacity: 0.6;
@@ -72,7 +73,7 @@ span{
     padding-right: 10px;
     border-right: solid 4px white;
     opacity: 0;
-    transition: 0.2s;
+    transition: 0.4s;
     font-size: 14px;
 }
 .apollo-box:hover .apollo-text{
@@ -85,6 +86,7 @@ span{
     color: #2d434e;
     max-width: 480px;
     max-height: 360px;
+    cursor: git a;
 }
 .steve-box img{
     transform: scale(1);
