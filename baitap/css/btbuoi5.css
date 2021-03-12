@@ -86,7 +86,7 @@ span{
     color: #2d434e;
     max-width: 480px;
     max-height: 360px;
-    cursor: git a;
+    cursor: pointer;
 }
 .steve-box img{
     transform: scale(1);
