@@ -3,3 +3,33 @@ body{
     margin: 0;
     font-family: 'Cabin', sans-serif;
 }
+.mau-nen{
+    background-color: #222;
+}
+.container{
+    max-width: 1300px;
+    width: 100%;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    color: #d5d5d5;
+}
+.container-menu{
+    background-color: #444;
+    max-width: 25%;
+    width: 100%;
+    height: 90vh;
+}
+.menu__cv-header-img {
+    width: 180px;
+}
+.menu__cv-header-img img{
+    border-radius: 50%;
+    max-width: 100%;
+}
+.container-content{
+    background-color: #222;
+    max-width: 75%;
+    width: 100%;
+}
