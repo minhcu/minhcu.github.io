@@ -10,53 +10,62 @@
 </head>
 <body>
     <div class="container">
-        <div class="container-menu">
-            <div class="menu__cv-header">
-                <div class="menu__cv-header-img">
-                    <img src="/baitap/img/cv_avatar.jpg" alt="Lê Bá Minh Đồng">
-                </div>
-                <div class="menu__cv-header-name">
-                    Lê Bá Minh Đồng
-                </div>
+        <!-- Header -->
+        <div class="header">
+            <!-- Avatar -->
+            <div class="cv-avatar-box">
+                <img src="/baitap/img/cv_avatar.jpg" alt="Lê Bá Minh Đồng">
+                <div class="cv-avatar-name">Lê Bá Minh Đồng</div>
             </div>
-            <div class="menu__cv-navs"></div>
-            <div class="menu__cv-about-me">
-                <i class="fas fa-phone-alt"></i>
-                <i class="fas fa-envelope"></i>
-                <i class="fab fa-facebook-square"></i>
-                <i class="fab fa-linkedin"></i>
-                <i class="fab fa-github-square"></i>
+            <!-- Navs -->
+            <div class="cv-navs header-cv__padding">
+                <div class="cv-navs_items">About Me</div>
+                <div class="cv-navs_items">Career Objetive</div>
+                <div class="cv-navs_items">Education</div>
+                <div class="cv-navs_items">Experience</div>
+                <div class="cv-navs_items">Skills</div>
+                <div class="cv-navs_items">Certificates</div>
+            </div>
+            <!-- Social -->
+            <div class="cv-footer header-cv__padding">
+                <div class="cv-footer_contact">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-github-square"></i>
+                </div>
             </div>
         </div>
-        <div class="container-content">
-            <div class="content__cv-career-object">
-                <div class="content__cv__title">
-                    Career Objective
+        <!-- Body -->
+        <div class="content">
+            <!-- About me -->
+            <div class="cv-about-me">
+                <h2 class="content_cv-title">About me</h2>
+                <div class="about-me_description">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </div>
+                <div class="about-me_information">
+                    <div class="column">
+                        birthday
+                        email
+
+                    </div>
+                    <div class="column"></div>
                 </div>
             </div>
-            <div class="content__cv-education">
-                <div class="content__cv__title">
-                    Education
-                </div>
-            </div>
-            <div class="content__cv-experience">
-                <div class="content__cv__title">
-                    Experience
-                </div>
-            </div>
-            <div class="content__cv-skills">
-                <div class="content__cv__title">
-                    Skills
-                </div>
-            </div>
-            <div class="content__cv-certificates">
-                <div class="content__cv__title">
-                    Certificates
-                </div>
-            </div>
-            <div class="content__cv-projects">
-                <div class="content__cv__title">
-                    Projects
+            <!-- Education -->
+            <div class="cv-education">
+                <h2 class="content_cv-title">Education</h2>
+                <div class="cv-education-description cv_flex-infor">
+                    <div class="description-left">
+                        <div class="description-left_time">
+                            2018 - Current
+                        </div>
+                    </div>
+                    <div class="description_divider"></div>
+                    <div class="description-right">
+                        <h3 class="description-right_title">Đại học Kinh tế - Đại học Đà Nẵng</h3>
+                        <div class="description-right_content"></div>
+                    </div>
                 </div>
             </div>
         </div>

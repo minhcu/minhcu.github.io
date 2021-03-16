@@ -2,34 +2,63 @@
 body{
     margin: 0;
     font-family: 'Cabin', sans-serif;
+    background-color: black;
 }
-.mau-nen{
-    background-color: #222;
+/* Header */
+.header{
+    width: 25%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #232946;
+    color: #fffffe;
 }
-.container{
-    max-width: 1300px;
-    width: 100%;
-    margin: 5vh auto;
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    color: #d5d5d5;
+.header-cv__padding{
+    padding: 30px;
 }
-.container-menu{
-    background-color: #444;
-    max-width: 25%;
-    width: 100%;
-    height: 90vh;
-}
-.menu__cv-header-img {
+/* Header - Avatar Box */
+.cv-avatar-box{
+    position: relative;
     width: 180px;
+    height: auto;
+    margin: auto;
+    text-align: center;
 }
-.menu__cv-header-img img{
+.cv-avatar-box img{
     border-radius: 50%;
     max-width: 100%;
 }
-.container-content{
-    background-color: #222;
-    max-width: 75%;
-    width: 100%;
+.cv-avatar-name {
+    font-size: 24px;
+    padding: 15px 0;
 }
+/* Header - Navs */
+.cv-navs_items{
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+/* Header - Contacts */
+.cv-footer_contact{
+    font-size: 20px;
+    text-align: center;
+}
+/* Content */
+.content{
+    width: 75%;
+    background-color: #b8c1ec;
+    float: right;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.content_cv-title{
+    color: #232946;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.cv_flex-infor
+/* Content - About me */
+.about-me_information{
+    display: flex;
+}
+/* Education */
