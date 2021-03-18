@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+body {
+    font-family: 'Cabin', sans-serif;
+    background-color: #222222;
+    color: #d5d5d5;;
+}
+/* About me CSS */
+.basic-info li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.basic-info .title {
+    color: #04b4e0;
+    font-weight: 700;
+}
+/* What I do CSS*/
+.what-i-do i{
+    color: #04b4e0;
+    font-size: 42px;
+}
+/* Resume CSS */
+/* Timeline CSS */
+.timeline-item {
+    display: flex;
+    position: relative;
+    padding-bottom: 15px;
+}
+.item-left{
+    flex: 0 0 25%;
+    text-align: right;
+    padding-right: 20px;
+}
+.divider {
+    width: 1px;
+    background-color: #444;
+    position: absolute;
+    left: 25%;
+    top: 0;
+    bottom: 0;
+}
+.divider::before {
+    content: '';
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    background-color: #04b4e0;
+    display: block;
+    margin-top: 10px;
+    margin-left: -10px;
+    opacity: 0.3;
+    border-radius: 50%;
+}
+.divider::after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: #222222;
+    margin-top: 11px;
+    display: block;
+    margin-left: -7px;
+    border: solid 2px #04b4e0;
+    border-radius: 50%;
+}
+.item-right {
+    flex: 0 0 calc(100% - 25% - 1px);
+    padding-left: 20px;
+}
+/* Skills CSS */
+.skills .item {
+    display: inline-block;
+    background-color: #04b4e0;
+    padding: 2px 7px;
+    border-radius: 3px;
+    color: white;
+}
+.tools .text {
+    background-color: #04b4e0;
+    padding: 2px 7px;
+    border-radius: 3px;
+    color: white;
+}
+/* Certificate */
+.certificate {
+    display: flex;
+    border: solid 3px;
+    border-radius: 10px;
+}
+.certificate .logo {
+    width: 120px;
+    border-right: solid 3px;
+}
+.certificate .logo img {
+    max-width:100%;
+    max-height:100%;
+    object-fit: cover;
+}
+.certificate .content {
+    padding: 25px 20px;
+}
+.certificate .title {
+    margin-bottom: 5px;
+}
