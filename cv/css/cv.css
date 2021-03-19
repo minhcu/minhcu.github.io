@@ -7,6 +7,13 @@ body {
     background-color: #222222;
     color: #d5d5d5;;
 }
+/* Header */
+.header .box {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
 
 /* About me CSS */
 .basic-info li {
@@ -96,8 +103,8 @@ body {
     border-right: solid 3px;
 }
 .certificate .logo img {
-    max-width:100%;
-    max-height:100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: cover;
 }
 .certificate .content {
@@ -105,4 +112,39 @@ body {
 }
 .certificate .title {
     margin-bottom: 5px;
+}
+/* Project */
+.project {
+    position: relative;
+    background-color: #04b4e0;
+    overflow: hidden;
+    max-height: 300px;
+    height: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+.project img {
+    max-height: 300px;
+}
+.project:hover img {
+    opacity: 0.4;
+}
+.project .content {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+}
+.project .tag {
+    margin-top: 20px;
+}
+.project .cta {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 25px;
 }

@@ -98,7 +98,7 @@ span{
 }
 .steve-box .steve-content{
     position: absolute;
-    box-sizing:border-box;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     top: 0;
