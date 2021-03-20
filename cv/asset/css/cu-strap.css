@@ -485,7 +485,7 @@
     }
 }
 
-/* Big PC */
+/* Big PC
 @media (min-width : 1200px)   {
     .wide {
         max-width: 1200px;
@@ -603,4 +603,4 @@
     .bpc-block-11 {
         margin-left: 91.66667%;
     }
-}
+} */
