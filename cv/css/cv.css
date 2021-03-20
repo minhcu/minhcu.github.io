@@ -20,6 +20,9 @@
 * {
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Cabin', sans-serif;
     background-color: #444444;
@@ -54,7 +57,17 @@ a, a:hover, a:visited, a:active {
     background-color: #222222;
     box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.7);
 }
-
+.contact-btn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px 20px;
+    margin: 5px 10px;
+    background-color: #222;
+    border: solid 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+}
 /* Header */
 .header .box {
     height: 200px;
@@ -177,6 +190,7 @@ a, a:hover, a:visited, a:active {
     padding: 2px 7px;
     border-radius: 3px;
     color: white;
+    margin: 5px 0;
 }
 .tools .text {
     background-color: #04b4e0;
