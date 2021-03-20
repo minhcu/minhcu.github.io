@@ -32,6 +32,7 @@ a, a:hover, a:visited, a:active {
 .wrap-box--bordering {
     border: solid 3px #444;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 /* Header */
 .header__box {
@@ -44,12 +45,14 @@ a, a:hover, a:visited, a:active {
     height: 150px;
     border-radius: 50%;
     border: solid 3px #04b4e0;
-    animation: header-img 1s ease;
+    animation: header-img 1s;
+    z-index: 1;
 }
 .header__box__text {
     opacity: 0;
-    animation: header-text 1.5s ease 0.75s forwards;
+    animation: header-text 1s ease 0.5s forwards;
     margin: 0 20px;
+    z-index: 0;
 }
 .header__box__text__name{
     margin-top: 0;
