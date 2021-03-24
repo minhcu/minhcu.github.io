@@ -38,6 +38,9 @@ ul li {
     margin: 0;
     padding: 0;
 }
+h1,h2,h3,h4,h5,h6,p {
+    margin: 10px 0;
+}
 h1,h2,h3,h4,h5,h6 {
     color: white;
 }
@@ -47,6 +50,10 @@ h3 span {
 a, a:hover, a:visited, a:active {
     color: inherit;
     text-decoration: none;
+}
+.elements--margin {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .wrap-box--bordering {
     border: solid 3px #444;
@@ -69,34 +76,34 @@ a, a:hover, a:visited, a:active {
     box-shadow: 0 0 5px black;
 }
 /* Header */
-.header .box {
-    height: 200px;
+.box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
-.header .box__img {
+.box__img {
     height: 150px;
     border-radius: 50%;
     border: solid 3px #04b4e0;
     animation: header-img 1s;
     z-index: 1;
 }
-.header .box__text {
+.box__text {
     opacity: 0;
     animation: header-text 1s ease 0.5s forwards;
     margin: 0 20px;
     z-index: 0;
 }
-.header .box__text__name{
-    margin-top: 0;
-}
-.social {
+.box__text__social {
     font-size: 20px;
     text-align: center;
 }
-.social a {
+.social__link {
     margin: 0 5px;
+}
+.social__link:hover {
+    color: #04b4e0;
 }
 
 /* About me CSS */
@@ -114,29 +121,29 @@ a, a:hover, a:visited, a:active {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.what-i-do i{
+.what-i-do__icon {
     color: #04b4e0;
     font-size: 42px;
 }
-.what-i-do h4 {
+.what-i-do__title {
     margin: 5px 0;
 }
 /* Resume CSS */
 /* Timeline CSS */
-.timeline-item {
+.timeline__items {
     display: flex;
     position: relative;
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.item-left{
+.timeline__item-left{
     flex: 0 0 25%;
     text-align: right;
     padding-right: 20px;
     color: #a5a6a7;
     font-size: 14px;
 }
-.item-left .time{
+.timeline__item-left__time{
     font-weight: 700;
 }
 .divider {
@@ -305,15 +312,20 @@ a, a:hover, a:visited, a:active {
     display: none;
 }
 /* Big Mobile */
-@media (min-width : 576px) {
+@media (max-width : 576px) {
     
 }
 /* Tablet */
-@media (min-width : 768px) {
-    
+@media (max-width : 767px) {
+    .box {
+        flex-direction: column;
+    }
+    .box__text__name {
+        text-align: center;
+    }
 }
-
-/* Potato PC */
-@media (min-width : 992px) {
-    
+@media (min-width : 768px) {
+    .box {
+        min-height: 200px;
+    }
 }

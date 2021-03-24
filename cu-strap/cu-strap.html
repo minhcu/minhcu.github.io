@@ -5,39 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-strap</title>
-    <link rel="stylesheet" href="/cu-strap/cu-strap.css">
     <style>
         .grid{
             background-color: orange;
             text-align: center;
             font-size: 40px;
+            position: relative;
         }
         .row{
-            margin-top: 10px;
-            background-color: orangered;
-            background-clip: content-box;
+            height: 500px;
+            background-color: rgba(0, 0, 255, 0.7);
         }
-        .col{
-            background-color: cornflowerblue;
-            background-clip: content-box;
-        }
-        h1,h2,h3,h4,h5,h6{
-            margin: 0;
-        }
-        .row h2{
+        .line-1{
+            position: absolute;
+            height: 10px;
+            top: 10px;
+            left: 0%;
             width: 100%;
+            background-color: crimson;
+        }
+        .line-2 {
+            position: absolute;
+            height: 10px;
+            bottom: 10px;
+            left: 0%;
+            width: 100%;
+            background-color: crimson;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: crimson;
         }
     </style>
 </head>
 <body>
-    <div class="grid wide">
-        test
-        <div class="row">
-            test
-            <div class="col m-12">
-                test
-            </div>
-        </div>
+    <div class="grid">
+        <div class="row"></div>
+        <div class="circle"></div>
+        <div class="line-1"></div>
+        <div class="line-2"></div>
     </div>
 </body>
 </html>
