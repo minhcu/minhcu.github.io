@@ -74,6 +74,12 @@ a, a:hover, a:visited, a:active {
     border: solid 2px;
     border-radius: 10px;
     box-shadow: 0 0 5px black;
+    z-index: 999;
+    opacity: 0.6;
+    animation: .3s ease;
+}
+.contact-btn:hover {
+    opacity: 1;
 }
 /* Header */
 .box {
@@ -107,12 +113,12 @@ a, a:hover, a:visited, a:active {
 }
 
 /* About me CSS */
-.basic-info .title {
+.basic-info__title {
     color: #04b4e0;
     font-weight: 700;
     margin: 0 3px;
 }
-.basic-info .text {
+.basic-info__text {
     margin: 0 3px;
 }
 
@@ -146,7 +152,7 @@ a, a:hover, a:visited, a:active {
 .timeline__item-left__time{
     font-weight: 700;
 }
-.divider {
+.timeline__items__divider {
     width: 1px;
     background-color: #444;
     position: absolute;
@@ -154,7 +160,7 @@ a, a:hover, a:visited, a:active {
     top: 0;
     bottom: 0;
 }
-.divider::before {
+.timeline__items__divider::before {
     content: '';
     position: absolute;
     width: 21px;
@@ -166,7 +172,7 @@ a, a:hover, a:visited, a:active {
     opacity: 0.3;
     border-radius: 50%;
 }
-.divider::after {
+.timeline__items__divider::after {
     content: '';
     position: absolute;
     width: 11px;
@@ -178,32 +184,27 @@ a, a:hover, a:visited, a:active {
     border: solid 2px #04b4e0;
     border-radius: 50%;
 }
-.item-right {
+.timeline__item-right {
     flex: 0 0 calc(100% - 25% - 1px);
     padding-left: 20px;
 }
-.item-right .title {
+.timeline__item-right__title {
     color: white;
     font-weight: 600;
     margin-bottom: 3px;
 }
-.item-right .text {
+.timeline__item-right__text {
     font-size: 15px;
 }
 /* Skills CSS */
-.skills .item {
+.skill-list__item {
     display: inline-block;
     background-color: #04b4e0;
     padding: 2px 7px;
     border-radius: 3px;
     color: white;
     margin: 5px 0;
-}
-.tools .text {
-    background-color: #04b4e0;
-    padding: 2px 7px;
-    border-radius: 3px;
-    color: white;
+    cursor: pointer;
 }
 /* Certificate */
 .certificate {
@@ -212,27 +213,27 @@ a, a:hover, a:visited, a:active {
     border-radius: 10px;
     margin: 10px 0;
 }
-.certificate .logo {
+.certificate__logo {
     width: 120px;
     height: 117px;
     background-size: cover;
     border-right: solid 3px;
     overflow: hidden;
 }
-.certificate img{
+.certificate__logo__img{
     height: 100%;
     width: 100%;
 }
-.certificate .content {
+.certificate__content {
     padding: 25px 20px;
 }
-.certificate .title {
+.certificate__content__title {
     color: white;
     font-weight: 700;
     margin-bottom: 5px;
 }
-.certificate .text,
-.certificate .time {
+.certificate__content__tagline,
+.certificate__content__time {
     font-size: 14px;
 }
 /* Project */
@@ -250,19 +251,20 @@ a, a:hover, a:visited, a:active {
 .project:hover {
     transform: translateY(-2%);
 }
-.project img {
+.project__img {
     max-height: 300px;
 }
-.project:hover img {
+.project:hover .project__img {
     opacity: 0.3;
 }
-.project .content,
-.project .cta {
+.project__content,
+.project__cta {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    cursor: pointer;
 }
-.project .content {
+.project__content {
     top: 0;
     border: solid 2px #04b4e0;
     background-color: #333333;
@@ -271,7 +273,7 @@ a, a:hover, a:visited, a:active {
     padding: 0 10px;
     padding-bottom: 10px;
 }
-.project:hover .content {
+.project:hover .project__content {
     border-color: #d5d5d5;
 }
 .project .tag {
@@ -281,7 +283,7 @@ a, a:hover, a:visited, a:active {
     border-radius: 3px;
     color: white;
 }
-.project .cta {
+.project__cta {
     bottom: 0;
     padding: 10px 20px;
     border: solid 2px #d5d5d5;
@@ -289,17 +291,17 @@ a, a:hover, a:visited, a:active {
     border-radius: 20px;
     margin: 10px 0;
     background-color: #333333;
-    display: none;
-    transition: all .3s ease-in-out;
+    opacity: 0;
+    transition: all .2s ease;
 }
-.project .cta:hover {
+.project__cta:hover {
     background-color: #d5d5d5;
     color: #333333;
 }
-.project:hover .cta {
-    display: block;
+.project:hover .project__cta {
+    opacity: 1;
 }
-.project .cover {
+.project__cover {
     position: absolute;
     top: 0;
     left: 0;
@@ -308,8 +310,59 @@ a, a:hover, a:visited, a:active {
     background-color: #333;
     opacity: 0.4;
 }
-.project:hover .cover {
+.project:hover .project__cover {
     display: none;
+}
+.popup__cover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99998;
+    display: none;
+}
+.popup__content {
+    position: fixed;
+    top: 5%;
+    bottom: 5%;
+    width: 100%;
+    max-width: 1024px;
+    background-color: white;
+    z-index: 99999;
+    margin-left: calc((100% - 1024px)/2 - 8px);
+    display: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.popup__content__close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    margin-right: 10px;
+    text-align: center;
+    width: 20px;
+    cursor: pointer;
+}
+.popup__content__close-button:hover {
+    color: black;
+}
+.popup__content__box__img {
+    max-width: 100%;
+}
+.popup__content__box__content {
+    max-width: 800px;
+    margin: auto;
+}
+.popup__content__box__content__text--black {
+    color: black;
+}
+
+.popup-box:checked ~ .popup__cover,
+.popup-box:checked ~ .popup__content {
+    display: block;
 }
 /* Big Mobile */
 @media (max-width : 576px) {
@@ -322,6 +375,22 @@ a, a:hover, a:visited, a:active {
     }
     .box__text__name {
         text-align: center;
+    }
+    .basic-info__title {
+        margin: 0;
+    }
+    .timeline__items {
+        flex-direction: column;
+        margin: 0 10px;
+    }
+    .timeline__items__divider {
+        left: 15%;
+    }
+    .timeline__item-left,
+    .timeline__item-right {
+        text-align: left;
+        margin-left: 15%;
+        padding-left: 20px;
     }
 }
 @media (min-width : 768px) {
