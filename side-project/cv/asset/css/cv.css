@@ -103,10 +103,9 @@ a, a:hover, a:visited, a:active {
 }
 .box__text__social {
     font-size: 20px;
-    text-align: center;
 }
-.social__link {
-    margin: 0 5px;
+.social__link:nth-child(2) {
+    margin: 0 10px;
 }
 .social__link:hover {
     color: #04b4e0;
@@ -387,6 +386,9 @@ a, a:hover, a:visited, a:active {
         flex-direction: column;
     }
     .box__text__name {
+        text-align: center;
+    }
+    .box__text__social {
         text-align: center;
     }
     .basic-info__title {
