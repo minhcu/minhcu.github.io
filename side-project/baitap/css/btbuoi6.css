@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+body{
+    margin: 0;
+    font-family: 'Cabin', sans-serif;
+    background-color: black;
+    color: #d5d5d5;;
+}
+a:link {
+    text-decoration: none;
+    color: white;
+}
+  
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+/* Header */
+.header{
+    width: 25%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #444444;
+    color: #fffffe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header-cv__padding{
+    padding: 30px 0;
+}
+/* Header - Avatar Box */
+.cv-avatar-box{
+    position: relative;
+    width: 180px;
+    height: auto;
+    text-align: center;
+}
+.cv-avatar-box img{
+    border-radius: 50%;
+    max-width: 100%;
+}
+.cv-avatar-name {
+    font-size: 24px;
+    padding: 15px 0;
+}
+/* Header - Navs */
+.cv-navs_items{
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding: 10px 0;
+}
+/* Header - Contacts */
+.cv-footer_contact{
+    font-size: 20px;
+    text-align: center;
+}
+.cv-footer_contact i{
+    padding: 0 5px;
+}
+/* Content */
+.content{
+    width: 75%;
+    background-color: #222222;
+    float: right;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.content_cv-title{
+    color: #eee;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.cv_flex-infor{
+    display: flex;
+}
+/* Content - About me */
+.about-me_information{
+    display: flex;
+}
+/* Education */
+.description-right_title, .description-left_time, .description-right_content{
+    padding: 10px;
+}
+.description-right_title{
+    margin: 0;
+}
+.description_divider{
+    width: 1px;
+    background-color: grey;
+}
+.description-left_time{
+    font-weight: 700;
+}
+/* SKills */
+.skills-list li{
+    display: inline-block;
+    background-color: #04b4e0;
+    padding: 2px 10px;
+    margin: 2px 3px;
+    border-radius: 3px;
+    color: #fff;
+}
+/* Projects */
+.projects{
+    width: 100%;
+}
+.projects-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.projects-container a{
+    display: block;
+    width: 27%;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 3px;
+    background-color: #444444;
+}
