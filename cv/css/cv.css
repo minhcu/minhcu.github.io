@@ -356,18 +356,31 @@ a, a:hover, a:visited, a:active {
     max-width: 800px;
     margin: auto;
 }
-.popup__content__box__content__text--black {
+.popup__content__box__content .popup__content__box__content__text--black {
     color: black;
 }
-
+.popup__content__box__content .popup__content__box__content__text_hover--blue:hover {
+    color: #04b4e0;
+}
 .popup-box:checked ~ .popup__cover,
 .popup-box:checked ~ .popup__content {
     display: block;
 }
-/* Big Mobile */
-@media (max-width : 576px) {
-    
+
+/* Potato PC */
+@media (max-width : 992px) {
+    .popup__content {
+        position: fixed;
+        max-width: 700px;
+        background-color: white;
+        margin-left: calc((100% - 700px)/2 - 8px);
+    }
+    .popup__content__box__content {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
 }
+
 /* Tablet */
 @media (max-width : 767px) {
     .box {
@@ -392,9 +405,56 @@ a, a:hover, a:visited, a:active {
         margin-left: 15%;
         padding-left: 20px;
     }
+    .popup__content {
+        position: fixed;
+        width: 100%;
+        background-color: white;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    .popup__content__box__content {
+        max-width: 600px;
+    }
 }
+
 @media (min-width : 768px) {
     .box {
         min-height: 200px;
+    }
+
+    .popup__content__close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 30px;
+        margin-right: 10px;
+        text-align: center;
+        width: 20px;
+        cursor: pointer;
+    }
+    .popup__content__close-button:hover {
+        color: black;
+    }
+    .popup__content__box__img {
+        max-width: 100%;
+    }
+    .popup__content__box__content {
+        max-width: 800px;
+        margin: auto;
+    }
+}
+
+/* Big Mobile */
+@media (max-width : 577px) {
+    .popup__content {
+        position: fixed;
+        width: 100%;
+        background-color: white;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    .popup__content__box__content {
+        margin-left: 8px;
+        margin-right: 8px;
     }
 }
