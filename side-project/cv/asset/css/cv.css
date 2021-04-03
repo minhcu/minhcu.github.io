@@ -339,7 +339,7 @@ a, a:hover, a:visited, a:active {
     max-width: 1024px;
     background-color: white;
     z-index: 99999;
-    margin: 0 calc((100% - 1024px)/2 - 8px);
+    margin: auto;
     display: none;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -380,7 +380,6 @@ a, a:hover, a:visited, a:active {
     .popup__content {
         max-width: 700px;
         background-color: white;
-        margin-left: calc((100% - 700px)/2 - 8px);
     }
 }
 
