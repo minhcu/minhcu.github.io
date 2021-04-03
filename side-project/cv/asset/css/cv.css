@@ -204,6 +204,11 @@ a, a:hover, a:visited, a:active {
     color: white;
     margin: 5px 0;
     cursor: pointer;
+    transition: .2s ease;
+}
+.skill-list__item:hover {
+    box-shadow: 0 0 2px 1px #333;
+    transform: scale(1.02);
 }
 /* Certificate */
 .certificate {
@@ -271,6 +276,7 @@ a, a:hover, a:visited, a:active {
     margin: 10px 0;
     padding: 0 10px;
     padding-bottom: 10px;
+    width: 65%;
 }
 .project:hover .project__content {
     border-color: #d5d5d5;
@@ -292,6 +298,7 @@ a, a:hover, a:visited, a:active {
     background-color: #333333;
     opacity: 0;
     transition: all .2s ease;
+    width: 65%;
 }
 .project__cta:hover {
     background-color: #d5d5d5;
@@ -326,11 +333,13 @@ a, a:hover, a:visited, a:active {
     position: fixed;
     top: 5%;
     bottom: 5%;
+    left: 0;
+    right: 0;
     width: 100%;
     max-width: 1024px;
     background-color: white;
     z-index: 99999;
-    margin-left: calc((100% - 1024px)/2 - 8px);
+    margin: 0 calc((100% - 1024px)/2 - 8px);
     display: none;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -369,14 +378,9 @@ a, a:hover, a:visited, a:active {
 /* Potato PC */
 @media (max-width : 992px) {
     .popup__content {
-        position: fixed;
         max-width: 700px;
         background-color: white;
         margin-left: calc((100% - 700px)/2 - 8px);
-    }
-    .popup__content__box__content {
-        margin-left: 8px;
-        margin-right: 8px;
     }
 }
 
@@ -406,10 +410,10 @@ a, a:hover, a:visited, a:active {
         text-align: left;
         margin-left: 15%;
         padding-left: 20px;
+        padding-bottom: 5px;
     }
     .popup__content {
-        position: fixed;
-        width: 100%;
+        width: inherit;
         background-color: white;
         margin-left: 8px;
         margin-right: 8px;
@@ -448,15 +452,12 @@ a, a:hover, a:visited, a:active {
 
 /* Big Mobile */
 @media (max-width : 577px) {
-    .popup__content {
-        position: fixed;
-        width: 100%;
-        background-color: white;
-        margin-left: 8px;
-        margin-right: 8px;
+    .wrap-box--bordering {
+        padding-left: 8px;
+        padding-right: 8px ;
     }
-    .popup__content__box__content {
-        margin-left: 8px;
-        margin-right: 8px;
+    .popup__content {
+        width: inherit;
+        background-color: white;
     }
 }
