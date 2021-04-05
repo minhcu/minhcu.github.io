@@ -17,8 +17,11 @@ const test2PartA = function showMmddyyyy () {
 
 // 3
 const test3 = function numberCheck () {
-    let number = document.getElementById('number').value;
-    document.getElementById('result').innerHTML = number;
+    if (-10 <)
+    let number = document.getElementById('number').value.toString().split('');
+    const array = [...number];
+
+    document.getElementById('test3Result').innerHTML = array;
 }
 
 // 7
@@ -42,16 +45,15 @@ const test8 = function monthCheck () {
 
 // 10
 const test10 = function integerCheck () {
+    test10Result = '';
     const startNumber = document.getElementById('startNumber').value;
     const endNumber = document.getElementById('endNumber').value;
-    for (startNumber; startNumber <= endNumber; startNumber++) {
-        for (i=2; i <= startNumber; i++) {
-            if (startNumber % i == 0) {
-                document.getElementById('monthName').innerHTML= startNumber;
-            }
-            else {
-                document.getElementById('monthName').innerHTML= 'Không có số nguyên tố';
+    for (i = startNumber; i <= endNumber; i++) {
+        for (x = 2; x <= i; x++) {
+            if (i % x != 0) {
+                test10Result= test10Result + i;
             }
         }
     }
+    document.getElementById('test10Result').innerHTML = test10Result;
 }

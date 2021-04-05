@@ -51,6 +51,10 @@
         <!-- Bài 3 -->
         <div class="test-3 item-12">
             <h2 class="test__title">3. Kiểm tra xem một chuỗi số nguyên đã cho có chuỗi chữ số tăng hay không</h2>
+            <p>Biến dãy số thành chuỗi</p>
+            <p>Lấy số sau trừ số trước</p>
+            <p>Toàn bộ >0 -> True</p>
+            <p>Xuất hiện &#706 0 -> False</0></p>
             <div>
                 Nhập số:
                 <input type="number" id="number">
@@ -58,7 +62,7 @@
             </div>
             <div>
                 Kết quả:
-                <span id="result"></span>
+                <span id="test3Result"></span>
             </div>
         </div>
         <div class="test-4 item-12">
@@ -104,19 +108,25 @@
         </div>
         <div class="test-10 item-12">
             <h2 class="test__title">10. Nhập hai số và in ra giá trị là số nguyên tố giữa 2 số đó</h2>
+            <p>Cho X chạy từ số Start đến số End</p>
+            <p>Tại mỗi số X lấy X chia cho Y (Y chạy từ 2 đến X-1) </p>
+            <p>Nếu X chia Y dư 0 -> Bỏ qua số đó</p>
+            <p>Nếu X chia Y dư khác 0 -> Tiếp tục cho đến khi Y=X</p>
+            <p>Nếu X=Y mà X chia Y vẫn khác 0 thì Kết quả cho hiện số đó</p>
             <div>
                 <span>
                     Nhập số đầu: 
                     <input type="number" id="startNumber">
                 </span>
                 <span>
-                    Nhập số cuối: 
+                    Nhập số cuối:
                     <input type="number" id="endNumber">
                 </span>
                 <button type="button" onclick="test10()">Check</button>
             </div>
             <div>
-                Kết quả:
+                Ket qua
+                <span id="test10Result"></span>
             </div>
         </div>
     </div>
