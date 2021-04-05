@@ -58,23 +58,59 @@
             <div>
                 Nhập số:
                 <input type="number" id="number">
-                <button type="button" onclick="test3()">Check</button>
+                <button type="button" onclick="test3()">Kiểm tra</button>
             </div>
             <div>
-                Kết quả:
+                Kết quả: 
                 <span id="test3Result"></span>
             </div>
         </div>
+        <!-- Bài 4 -->
         <div class="test-4 item-12">
             <h2 class="test__title">4. Thay thế mọi ký tự trong chuỗi đã cho với ký tự theo sau nó trong bảng chữ cái</h2>
+            <p>Biến chuỗi thành array</p>
+            <p>Kiểm tra charcode từng kí tự và +1 rồi chuyển lại thành kí tự</p>
+            <p>Skip kí tự trống 32</p>
         </div>
+        <!-- Bài 5 -->
         <div class="test-5 item-12">
             <h2 class="test__title">5. Viết chương trình tạo chuỗi bằng cách sử dụng ba ký tự ở giữa của một chuỗi có độ dài lẻ. Độ dài chuỗi phải lớn hơn hoặc bằng ba.</h2>
+            <div>
+                Nhập chuỗi:
+                <input type="text" id="test5Text">
+                <button type="button" onclick="test5()">Kiểm tra</button>
+            </div>
+            <div>
+                Kết quả: 
+                <span id="test5Result"></span>
+            </div>
         </div>
         <div class="test-6 item-12">
             <h2 class="test__title">6. Viết chương trình hiển thị số xuất hiện nhiều lần nhất trong mảng</h2>
+            <p></p>
             <div>
-                input:number*8
+                <input type="number">
+            </div>
+            <div>
+                <input type="number">
+            </div>
+            <div>
+                <input type="number">
+            </div>
+            <div>
+                <input type="number">
+            </div>
+            <div>
+                <input type="number">
+            </div>
+            <div>
+                <input type="number">
+            </div>
+            <div>
+                <input type="number">
+            </div>
+            <div>
+                <button type="button" id="test6Result"></button>
             </div>
         </div>
         <!-- Bài 7 -->
@@ -105,14 +141,16 @@
         </div>
         <div class="test-9 item-12">
             <h2 class="test__title">9. Nhập một chuỗi và tìm từ dài nhất trong chuỗi</h2>
+            <p>Tách chuỗi thành mảng với khoảng cách là vạch chia</p>
+            <p>Kiểm tra độ dài từng chuỗi</p>
         </div>
         <div class="test-10 item-12">
             <h2 class="test__title">10. Nhập hai số và in ra giá trị là số nguyên tố giữa 2 số đó</h2>
             <p>Cho X chạy từ số Start đến số End</p>
             <p>Tại mỗi số X lấy X chia cho Y (Y chạy từ 2 đến X-1) </p>
             <p>Nếu X chia Y dư 0 -> Bỏ qua số đó</p>
-            <p>Nếu X chia Y dư khác 0 -> Tiếp tục cho đến khi Y=X</p>
-            <p>Nếu X=Y mà X chia Y vẫn khác 0 thì Kết quả cho hiện số đó</p>
+            <p>Nếu X chia Y dư khác 0 -> Tiếp tục cho đến khi Y=X-1</p>
+            <p>Nếu X=Y-1 mà X chia Y vẫn khác 0 thì Kết quả cho hiện số đó</p>
             <div>
                 <span>
                     Nhập số đầu: 
@@ -125,7 +163,7 @@
                 <button type="button" onclick="test10()">Check</button>
             </div>
             <div>
-                Ket qua
+                Kết quả: 
                 <span id="test10Result"></span>
             </div>
         </div>

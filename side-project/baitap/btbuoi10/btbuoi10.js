@@ -17,18 +17,46 @@ const test2PartA = function showMmddyyyy () {
 
 // 3
 const test3 = function numberCheck () {
-    if (-10 <)
-    let number = document.getElementById('number').value.toString().split('');
-    const array = [...number];
+    let count = 1;
+    let number = document.getElementById('number').value;
+    if ((number < 10) & (number > -10)) {
+        document.getElementById('test3Result').innerHTML = 'Nhập số có 2 chữ số pls'
+    }
+    else {
+        const array = [...number.toString().split('')];
+        for (i = 1; i <= array.length; i++) {
+            if (count < array.length) {
+                if (array[i] - array[i-1] <= 0) {
+                    document.getElementById('test3Result').innerHTML = 'Không phải chuỗi số tăng';
+                    break;
+                }
+                else {
+                    count++;
+                }
+            }
+            else {
+                document.getElementById('test3Result').innerHTML = 'Chuỗi số tăng';
+            }
+        }
+    }
+}
 
-    document.getElementById('test3Result').innerHTML = array;
+// 5
+const test5 = function stringCreator () {
+    let test5Text = document.getElementById('test5Text').value;
+    if (test5Text.length % 2 == 0) {
+        document.getElementById('test5Result').innerHTML = 'Chuỗi chẵn rồi, nhập lại pls';
+    }
+    else {
+        document.getElementById('test5Result').innerHTML = 'Chuỗi lẻ rồi, nhưng mà chưa code tiếp';
+    }
 }
 
 // 7
 const test7 = function javaCheck () {
     const string = document.getElementById('string').value;
     const java = string.indexOf('java');
-    if (java > 0) {
+    if (java > -1) {
         document.getElementById('test7Result').innerHTML = 'Chuỗi có chứa \'Java\'';
     }
     else {
@@ -49,9 +77,15 @@ const test10 = function integerCheck () {
     const startNumber = document.getElementById('startNumber').value;
     const endNumber = document.getElementById('endNumber').value;
     for (i = startNumber; i <= endNumber; i++) {
-        for (x = 2; x <= i; x++) {
-            if (i % x != 0) {
-                test10Result= test10Result + i;
+        for (x = 2; x <= i - 1 ; x++) {
+            if (i % x == 0) {
+                break;
+            }
+            else if (x == i - 1) {
+                test10Result = test10Result + ' ' + i;
+            }
+            else {
+                continue;
             }
         }
     }
