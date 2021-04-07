@@ -10,7 +10,7 @@ const test2PartA = function showMmddyyyy () {
     const dd = date.getDate();
     const yyyy = date.getFullYear();
     document.getElementById('mm-dd-yyyy').innerHTML = mm + '-' + dd + '-' + yyyy;
-    document.getElementById('mm/dd/yyyy').innerHTML = mm + '/' + dd + '/' + yyyy;
+    document.getElementById('mm/dd/yyy  y').innerHTML = mm + '/' + dd + '/' + yyyy;
     document.getElementById('dd-mm-yyyy').innerHTML = dd + '-' + mm + '-' + yyyy;
     document.getElementById('dd/mm/yyyy').innerHTML = dd + '/' + mm + '/' + yyyy;
 }
@@ -50,6 +50,28 @@ const test5 = function stringCreator () {
     else {
         document.getElementById('test5Result').innerHTML = 'Chuỗi lẻ rồi, nhưng mà chưa code tiếp';
     }
+}
+
+// 6
+const test6 = function duplicateTest () {
+    const test6Input = document.getElementById('test6Input').value;
+    const array = test6Input.split(' ');
+    count = {};
+    max = 0;
+    test6Result;
+    array.forEach(element => {
+        if (count[element]) {
+            count = 1;
+        }
+        else {
+            count++
+        }
+        if (count[element] > max) {
+            max = count[element];
+            test6Result = element;
+        }
+    });
+    document.getElementById('test6Result').innerHTML = test6Result;
 }
 
 // 7
