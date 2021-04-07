@@ -1,0 +1,38 @@
+body {
+    background-color: #222;
+}
+.input-block {
+    border: solid 1px black;
+    background-color: #444;
+}
+.input-block,
+.output-block {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #444;
+}
+.btn{
+    text-align: center;
+    flex-direction: row;
+    margin: 5px;
+    padding: 10px 5px;
+    color: white;
+}
+.input-block .btn {
+    width: 100px;
+}
+.output-block .btn {
+
+}
+.submit-btn {
+    background-color: blue;
+}
+.edit-btn {
+
+}
+.save-btn {
+
+}
+.cancel-btn {
+
+}

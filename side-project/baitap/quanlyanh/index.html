@@ -5,9 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý ảnh của giáo sư 4.0</title>
+    <link rel="stylesheet" href="/side-project/cu-strap/cu-strap.css">
+    <link rel="stylesheet" href="/side-project/baitap/quanlyanh/styles.css">
 </head>
 <body>
-    <div class="input-block"></div>
-    <div class="output-block"></div>
+    <div class="grid wide">
+        <div class="row input-block">
+            <div class="col bpc-3">
+                <p class="input-block__title">Item name</p>
+                <input class="input-block___input-box" type="text" placeholder="Item name">
+            </div>
+            <div class="col bpc-3">
+                <p class="input-block__title">Category</p>
+                <select name="Category" id="">
+                    <option class="input-block___input-box" value="noselected">No Selected</option>
+                    <option class="input-block___input-box" value="category1">Category 1</option>
+                    <option class="input-block___input-box" value="category2">Category 2</option>
+                    <option class="input-block___input-box" value="category3">Category 3</option>
+                </select>
+            </div>
+            <div class="col bpc-3">
+                <p class="input-block__title">Upload</p>
+                <input type="file">
+            </div>
+            <div class="col bpc-3">
+                <p class="input-block__title">Submit</p>
+                <div class="btn submit-btn">Submit</div>
+            </div>
+        </div>
+        <div class="row output-block output-block__table-head">
+            <div class="col bpc-1">#</div>
+            <div class="col bpc-3">Item Name</div>
+            <div class="col bpc-3">Category</div>
+            <div class="col bpc-2">Image</div>
+            <div class="col bpc-3">Action</div>
+        </div>
+        <div class="output-block__table-body">
+            <div class="row output-block">
+                <div class="col bpc-1">1</div>
+                <div class="col bpc-3">Item 1</div>
+                <div class="col bpc-3">Category 1</div>
+                <div class="col bpc-2">Image</div>
+                <div class="col bpc-3">
+                    <span class="btn edit-btn">Edit</span>
+                    <span class="delete delete btn">Delete</span>
+                </div>
+            </div>
+            <div class="row output-block">
+                <div class="col bpc-1">2</div>
+                <div class="col bpc-3">Item 2</div>
+                <div class="col bpc-3">Category 2</div>
+                <div class="col bpc-2">Image</div>
+                <div class="col bpc-3">
+                    <span class="btn save-btn">Save</span>
+                    <span class="btn cancel-btn">Cancel</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
