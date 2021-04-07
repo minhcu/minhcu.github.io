@@ -23,7 +23,14 @@ const test3 = function numberCheck () {
         document.getElementById('test3Result').innerHTML = 'Nhập số có 2 chữ số pls'
     }
     else {
-        const array = [...number.toString().split('')];
+        const array = [number.toString().split('')];
+        // document.getElementById('test3Result').innerHTML = 'Chuỗi số tăng';
+        // array.forEach((element, index, array) => {
+        //     if (array[index] >= array[index + 1]) {
+        //         document.getElementById('test3Result').innerHTML = 'Không phải chuỗi số tăng';
+        //     }
+        // });
+
         for (i = 1; i <= array.length; i++) {
             if (count < array.length) {
                 if (array[i] - array[i-1] <= 0) {
@@ -46,7 +53,12 @@ const test4 = function stringReplace () {
     const test4Text = document.getElementById('test4Text').value;
     let test4Result = '';
     for (i = 0; i <= test4Text.length - 1; i++) {
+        // if ((test4Text.charCodeAt(i) < 96)) && test4Text.charCodeAt(i) > 122) {
+
+        // }
+        // else {
         test4Result = test4Result + String.fromCharCode(test4Text.charCodeAt(i) + 1);
+        // }
     }
     document.getElementById('test4Result').innerHTML = test4Result;
 }
