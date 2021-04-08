@@ -7,36 +7,44 @@
     <title>Quản lý ảnh của giáo sư 4.0</title>
     <link rel="stylesheet" href="/side-project/cu-strap/cu-strap.css">
     <link rel="stylesheet" href="/side-project/baitap/quanlyanh/styles.css">
-    <script src="/side-project/baitap/quanlyanh/javascript.js"></script>
 </head>
 <body>
     <div class="grid wide">
-        <form action="/side-project/baitap/quanlyanh/index.html" method="post" id="input__form">
+        <!-- Input -->
+        <form id="input__form" name="input__form" onsubmit="return false" novalidate>
             <div class="row input-block">
+                <!-- Item Name -->
                 <div class="col bpc-3">
                     <p class="input-block__title">Item name</p>
-                    <input class="input-block___input-box" id="input__item-name" type="text" placeholder="Item name" maxlength="10">
-                    <p class="input__name-warning" id="input__name-warning"></p>
+                    <input class="input-block___input-box" id="input__item-name" name="itemname" type="text" placeholder="Item name" maxlength="10" required>
+                    <p id="input__name-warning"></p>
                 </div>
+                <!-- Category -->
                 <div class="col bpc-3">
                     <p class="input-block__title">Category</p>
-                    <select name="Category" id="input__category" required>
+                    <select name="category" id="input__category" required>
                         <option class="input-block___input-box" id="input__no-selected" value="">No Selected</option>
-                        <option class="input-block___input-box" id="input__category-1" value="category1">Category 1</option>
-                        <option class="input-block___input-box" id="input__category-2" value="category2">Category 2</option>
-                        <option class="input-block___input-box" id="input__category-3" value="category3">Category 3</option>
+                        <option class="input-block___input-box" id="input__category-1" value="Category 1">Category 1</option>
+                        <option class="input-block___input-box" id="input__category-2" value="Category 2">Category 2</option>
+                        <option class="input-block___input-box" id="input__category-3" value="Category 3">Category 3</option>
                     </select>
+                    <p id="input__category-warning"></p>
                 </div>
+                <!-- Image -->
                 <div class="col bpc-3">
                     <p class="input-block__title">Upload</p>
-                    <input type="file" id="input__image" required>
+                    <input type="file" id="input__image" required onchange="imagePreview(event)">
+                    <img class="input__image--preview" src="" id="input__image--chosen" alt="">
+                    <p id="input__image-warning"></p>
                 </div>
+                <!-- Submit -->
                 <div class="col bpc-3">
                     <p class="input-block__title">Submit</p>
-                    <input class="btn btn__size--normal btn--blue" type="submit" value="Submit" onclick="input()"> 
+                    <button class="btn btn__size--normal btn--blue" type="submit" onsubmit="validity(event)">Submit</button>
                 </div>
             </div>
         </form>
+        <!-- Output -->
         <div class="row output-block output-block__table-head">
             <div class="col bpc-1">#</div>
             <div class="col bpc-3">Item Name</div>
@@ -49,8 +57,12 @@
             <div class="col bpc-3">
                 <div class="output__item-name"></div>
             </div>
-            <div class="col bpc-3">Category 1</div>
-            <div class="col bpc-2">Image</div>
+            <div class="col bpc-3">
+                <div class="output__item-category"></div>
+            </div>
+            <div class="col bpc-2">
+                <div class="output__item-image"></div>
+            </div>
             <div class="col bpc-3">
                 <div class="action-column">
                     <div class="btn btn__size--small btn--blue">Edit</div>
@@ -69,5 +81,6 @@
             </div>
         </div>
     </div>
+    <script src="/side-project/baitap/quanlyanh/javascript.js"></script>
 </body>
 </html>

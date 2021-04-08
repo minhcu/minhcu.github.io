@@ -25,14 +25,14 @@
     </style>
 </head>
 <body>
-    <form action="/side-project/baitap/quanlyanh/formtest.html" method="POST">
+    <form>
         <div>
             <label for="item">
                 <div>Item Name</div>
-                <input type="text" name="item" id="item" placeholder="Nhập tên" maxlength="10">
-                <p class="warning-name"></p>
+                <input type="text" name="item" id="item" placeholder="Nhập tên" maxlength="10" required>
+                <p id="warning-name"></p>
             </label>
-        </div>
+        <!-- </div>
         <div>
             <label for="category">
                 <div>Category</div>
@@ -47,11 +47,11 @@
         <div>
             <label for="image">
                 <div>Image</div>
-                <input type="file" name="image" id="image">
+                <input type="file" accept="image/*" name="image" id="image">
             </label>
-        </div>
+        </div> -->
         <div>
-            <button type="submit" onclick="">Submit</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
     <div class="result-table">
@@ -59,5 +59,6 @@
         <div id="item-category"></div>
         <div id="item-image"></div>
     </div>
+      
 </body>
 </html>
