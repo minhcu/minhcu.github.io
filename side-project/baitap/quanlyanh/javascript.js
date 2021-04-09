@@ -1,8 +1,5 @@
 
 const formInput = document.getElementsByTagName("form")[0];
-const itemName = document.getElementById("input__item-name");
-const itemCategory = document.getElementById("input__category");
-const itemImage = document.getElementById("input__image");
 // Preview Image
 const imagePreview = function (event) {
   document.getElementById("input__image-warning").innerHTML = "";
@@ -10,6 +7,9 @@ const imagePreview = function (event) {
 }
 // Validity & Get file
 const validity = formInput.addEventListener("submit", function (event) {
+  const itemName = document.getElementById("input__item-name");
+  const itemCategory = document.getElementById("input__category");
+  const itemImage = document.getElementById("input__image");
   if (!itemName.validity.valid) {
     document.getElementById("input__name-warning").innerHTML = "Không hợp lệ";
     event.preventDefault();
@@ -28,13 +28,14 @@ const validity = formInput.addEventListener("submit", function (event) {
     document.getElementById("input__image-warning").innerHTML = "Không hợp lệ";
     event.preventDefault();
   }
-  
-});
-// Show Data
-const submit = function () {
   if ((itemName.validity.valid) & (itemCategory.validity.valid) & (itemImage.validity.valid)) {
-    let formInput = {};
-    formInput.append()
-  }
-}
-
+    localStorage.setItem("itemName", itemName.value);
+    localStorage.setItem("itemCategory", itemCategory.value);
+    localStorage.setItem("itemImage", document.getElementById("input__image--chosen").src);
+    document.getElementById("input__image--chosen").src = "";
+    document.getElementById("input__form").reset();
+    document.getElementById("output__item-name").innerHTML = localStorage.getItem("itemName");
+    document.getElementById("output__item-category").innerHTML= localStorage.getItem("itemCategory");
+    document.getElementById("output__item-image").src= localStorage.getItem("itemImage");
+  }  
+});

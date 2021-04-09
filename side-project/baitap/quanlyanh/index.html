@@ -45,23 +45,28 @@
             </div>
         </form>
         <!-- Output -->
+        <!-- Table Header -->
         <div class="row output-block output-block__table-head">
             <div class="col bpc-1">#</div>
-            <div class="col bpc-3">Item Name</div>
-            <div class="col bpc-3">Category</div>
-            <div class="col bpc-2">Image</div>
+            <div class="col bpc-2">Item Name</div>
+            <div class="col bpc-2">Category</div>
+            <div class="col bpc-4">Image</div>
             <div class="col bpc-3">Action</div>
         </div>
+        <!-- Table Body -->
+        <!-- Item 1 -->
         <div class="row output-block output-block__table-body">
             <div class="col bpc-1">1</div>
-            <div class="col bpc-3">
-                <div class="output__item-name"></div>
-            </div>
-            <div class="col bpc-3">
-                <div class="output__item-category"></div>
+            <div class="col bpc-2">
+                <div class="output__item-name" id="output__item-name"></div>
             </div>
             <div class="col bpc-2">
-                <div class="output__item-image"></div>
+                <div class="output__item-category" id="output__item-category"></div>
+            </div>
+            <div class="col bpc-4">
+                <div >
+                    <img src="" class="output__item-image" id="output__item-image" alt="">
+                </div>
             </div>
             <div class="col bpc-3">
                 <div class="action-column">
@@ -70,11 +75,12 @@
                 </div>
             </div>
         </div>
-        <div class="row output-block">
+        <!-- Item 2 -->
+        <div class="row output-block output-block__table-body">
             <div class="col bpc-1">2</div>
-            <div class="col bpc-3">Item 2</div>
-            <div class="col bpc-3">Category 2</div>
-            <div class="col bpc-2">Image</div>
+            <div class="col bpc-2">Item 2</div>
+            <div class="col bpc-2">Category 2</div>
+            <div class="col bpc-4">Image</div>
             <div class="col bpc-3">
                 <span class="btn btn__size--small btn--green">Save</span>
                 <span class="btn btn__size--small btn--gray">Cancel</span>
