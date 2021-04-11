@@ -1,64 +1,76 @@
 body {
-    background-color: #222;
     font-family: Arial, Helvetica, sans-serif;
 }
-button, input {
-    border: none;
+p {
+    margin: 0;
+    padding: 0;
 }
-input[type=submit] {
-    border: none;
-}
-input:required:invalid {
-    color: white;
-}
-.input-block {
+.input-container,
+.output-container {
+    max-width: 1200px;
+    margin: auto;
     border: solid 1px black;
-    background-color: #444;
-    margin-bottom: 20px;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+.input_item-btn,
+.input__item-name-block,
+.input__item-category-block {
+    align-self: center;
+}
+.input_item-btn {
+    justify-self: center;
+}
+.input-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.output__header,
+.output__content {
+    display: grid;
+    grid-template-columns: 10% repeat(2,1fr) 30% 20%;
+    gap: 1rem;
+}
+.output__header{
+    font-weight: 700;
+    border-bottom: solid 1px black;
+    padding: 0 20px 10px 20px;
+}
+.output__content {
+    margin: 10px 0;
+    padding: 0 20px;
+}
+.output-items {
+    padding: 10px;
 }
 .input__image--preview {
-    max-height: 150px;
-    width: auto;
-}
-.input-block,
-.output-block {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #444;
-}
-.output-block__table-head {
-    font-weight: 700;
-    border-bottom: solid 1px white;
-}
-.output__item-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    max-height: 100px;
 }
 .btn {
-    text-align: center;
-    margin: 5px;
-    padding: 10px 5px;
+    padding: 10px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
     color: white;
-    display: inline-block;
+    border: none;
+    border-radius: .25rem;
     cursor: pointer;
-    font-size: 14px;
 }
-.btn__size--normal {
-    width: 100px;
+.input__btn {
+    background-color: #007bff;
+    padding: 15px 25px;
 }
-.btn__size--small {
-    width: 60px;
+.btn__edit {
+    background-color: #007bff;
 }
-.btn--blue {
-    background-color: #2098d1;
+.btn__delete {
+    background-color: #dc3545;;
 }
-.btn--orange {
-    background-color: #ed5650;
+.btn__save {
+    background-color: #28a745;
 }
-.btn--green {
-    background-color: #2dbf64;
+.btn__cancel{
+    background-color: #6c757d;
 }
-.btn--gray {
-    background-color: #7c7b89;
+.input-items {
+    padding: 10px 20px;
 }

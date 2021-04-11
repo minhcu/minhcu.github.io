@@ -5,88 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý ảnh của giáo sư 4.0</title>
-    <link rel="stylesheet" href="/side-project/cu-strap/cu-strap.css">
     <link rel="stylesheet" href="/side-project/baitap/quanlyanh/styles.css">
 </head>
 <body>
-    <div class="grid wide">
-        <!-- Input -->
-        <form id="input__form" name="input__form" onsubmit="return false" novalidate>
-            <div class="row input-block">
-                <!-- Item Name -->
-                <div class="col bpc-3">
-                    <p class="input-block__title">Item name</p>
-                    <input class="input-block___input-box" id="input__item-name" name="itemname" type="text" placeholder="Item name" maxlength="10" required>
-                    <p id="input__name-warning"></p>
-                </div>
-                <!-- Category -->
-                <div class="col bpc-3">
-                    <p class="input-block__title">Category</p>
-                    <select name="category" id="input__category" required>
-                        <option class="input-block___input-box" id="input__no-selected" value="">No Selected</option>
-                        <option class="input-block___input-box" id="input__category-1" value="Category 1">Category 1</option>
-                        <option class="input-block___input-box" id="input__category-2" value="Category 2">Category 2</option>
-                        <option class="input-block___input-box" id="input__category-3" value="Category 3">Category 3</option>
-                    </select>
-                    <p id="input__category-warning"></p>
-                </div>
-                <!-- Image -->
-                <div class="col bpc-3">
-                    <p class="input-block__title">Upload</p>
-                    <input type="file" id="input__image" required onchange="imagePreview(event)">
-                    <img class="input__image--preview" src="" id="input__image--chosen" alt="">
-                    <p id="input__image-warning"></p>
-                </div>
-                <!-- Submit -->
-                <div class="col bpc-3">
-                    <p class="input-block__title">Submit</p>
-                    <button class="btn btn__size--normal btn--blue" type="submit" onsubmit="validity(event)">Submit</button>
-                </div>
-            </div>
-        </form>
-        <!-- Output -->
-        <!-- Table Header -->
-        <div class="row output-block output-block__table-head">
-            <div class="col bpc-1">#</div>
-            <div class="col bpc-2">Item Name</div>
-            <div class="col bpc-2">Category</div>
-            <div class="col bpc-4">Image</div>
-            <div class="col bpc-3">Action</div>
+    <div class="input-container">
+        <div class="input__item-name-block">
+            <label for="input__item-name">
+                <p class="input__item-name__title">Item Name</p>
+                <input class="input-items" type="text" id="input-name" maxlength="10" required>
+            </label>
+            <p id="input__item-name__warning"></p>
         </div>
-        <!-- Table Body -->
-        <!-- Item 1 -->
-        <div class="row output-block output-block__table-body">
-            <div class="col bpc-1">1</div>
-            <div class="col bpc-2">
-                <div class="output__item-name" id="output__item-name"></div>
-            </div>
-            <div class="col bpc-2">
-                <div class="output__item-category" id="output__item-category"></div>
-            </div>
-            <div class="col bpc-4">
-                <div >
-                    <img src="" class="output__item-image" id="output__item-image" alt="">
-                </div>
-            </div>
-            <div class="col bpc-3">
-                <div class="action-column">
-                    <div class="btn btn__size--small btn--blue">Edit</div>
-                    <div class="btn btn__size--small btn--orange">Delete</div>
-                </div>
-            </div>
+        <div class="input__item-category-block">
+            <label for="input__category">
+                <p class="input__category__title">Category</p>
+                <select class="input-items" name="" id="input-category" onchange="selectedValue()" required>
+                    <option value="">Uncagetoried</option>
+                    <option value="Category1">Category 1</option>
+                    <option value="Category2">Category 2</option>
+                    <option value="Category3">Category 3</option>
+                </select>
+            </label>
+            <p id="input__item-category__warning"></p>
         </div>
-        <!-- Item 2 -->
-        <div class="row output-block output-block__table-body">
-            <div class="col bpc-1">2</div>
-            <div class="col bpc-2">Item 2</div>
-            <div class="col bpc-2">Category 2</div>
-            <div class="col bpc-4">Image</div>
-            <div class="col bpc-3">
-                <span class="btn btn__size--small btn--green">Save</span>
-                <span class="btn btn__size--small btn--gray">Cancel</span>
+        <div class="input__image-block">
+            <label for="input__image">
+                <p class="input__image__title"></p>
+                <input type="file" id="input-image" onchange="imagePreview(event)" required>
+            </label>
+            <p id="input__image__warning"></p>
+            <img class="input__image--preview" src="" id="image-preview">
+        </div>
+        <div class="input_item-btn">
+            <button class="btn input__btn" onclick="submit(event)">Submit</button>
+        </div>
+    </div>
+    <div class="output-container" id="output">
+        <div class="output__header">
+            <div class="output__content__item-number">
+            #
+            </div>
+            <div class="output__content__item-name">
+                Item Name
+            </div>
+            <div class="output__content__item-category">
+                Category
+            </div>
+            <div class="output__content__item-image">
+                Image
+            </div>
+            <div class="output__content__item-action">
+                Action
+                <div class="btn-box">
+                    <button class="btn btn__edit">Edit</button>
+                    <button class="btn btn__delete">Delete</button>
+                </div>
+                <div class="btn-box">
+                    <button class="btn btn__save">Save</button>
+                    <button class="btn btn__cancel">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
-    <script src="/side-project/baitap/quanlyanh/javascript.js"></script>
 </body>
+<script src="/side-project/baitap/quanlyanh/javascript.js"></script>
 </html>
