@@ -25,6 +25,8 @@ function addElement(array) {
         cell.appendChild(objValue[x]);
       }
     }
+    // Edit Function ở trên để có thể setID cho hàng loạt thuộc tính khác
+    // cell => gọi biến
   setID("id",["number","name","category","image","action"],[i+1,inputSet[i].name,inputSet[i].category,inputSet[i].image,button]);
   };
 }
