@@ -2,50 +2,58 @@
 const inputSet = [];
 // Create Entity
 let input = {};
-
-const button = document.getElementById("btn-1").cloneNode(true);
 // Create Table
 function addElement(array) {
   for (i = 0; i < array.length; i++) {
-  // Create output-container
-  const row = document.createElement("div");
-  row.setAttribute("class","output__content");
-  row.setAttribute("id",array[i].key);
-  document.getElementById("output").appendChild(row);
-  // Create Output Items
-  function setID(element,idList,objValue) {
-    objValue[0] = document.createTextNode(i+1);
-    // objValue[3] = document.createTextNode(inputSet[i].image);
-    objValue[4] = document.createTextNode("");
-    for (x = 0; x < 5; x++) {
-        cell = document.createElement("div");
-        row.appendChild(cell);
-        cell.setAttribute("class","output-items");
-        cell.setAttribute(element,array[i].key + "_" + idList[x]);
-        cell.appendChild(objValue[x]);
+    // Create output-container
+    const row = document.createElement("div");
+    row.setAttribute("class","output__content");
+    row.setAttribute("id",array[i].key);
+    document.getElementById("output").appendChild(row);
+    // Create Output Items
+    function setID(idList,objValue) {
+      objValue[0] = document.createTextNode(i+1);
+      objValue[4] = document.createTextNode("");
+      for (x = 0; x < 5; x++) {
+          cell = document.createElement("div");
+          row.appendChild(cell);
+          cell.setAttribute("class","output-items");
+          cell.setAttribute("id",array[i].key + "_" + idList[x]);
+          cell.appendChild(objValue[x]);
+        }
       }
-    }
-    // Edit Function ở trên để có thể setID cho hàng loạt thuộc tính khác
-    // cell => gọi biến
-  setID("id",["number","name","category","image","action"],[i+1,inputSet[i].name,inputSet[i].category,inputSet[i].image,""]);
+    setID(["number","name","category","image","action"],["",inputSet[i].name,inputSet[i].category,inputSet[i].image,""]);
+    // Create Button
+    function setBTN(btnClass, btnId, jsfunction) {
+      const btncell = document.getElementById(array[i].key + "_" + "action");
+      for (x = 0; x < 4; x++) {
+        btn = document.createElement("button");
+        btncell.appendChild(btn);
+        btn.setAttribute("class",btnClass[x]);
+        btn.setAttribute("id",array[i].key + "_" + btnId[x]);
+        btn.setAttribute("onclick",jsfunction[x]);
+        btn.appendChild(document.createTextNode(btnId[x]));
+      }
+    };
+    setBTN(["btn btn__edit","btn btn__delete","btn btn__save","btn btn__cancel"],["edit","delete","save","cancel"],["edit()","deleteTable(id)","save()","cancel()"])
   };
-  function setBTN(btnClass, btnId) {
-    for (x = 0; x < 4; x++) {
-    btncell = document.getElementById(array[i].key + "_" + "action");
-      btn = document.createElement("button");
-      btncell.appendChild(btn);
-      btn.setAttribute("class",btnClass[x]);
-      btn.setAttribute("id",array[i].key + "_" + btnId[x]);
-    }
-  };
-  setBTN(["btn btn__edit","btn btn__delete","btn btn__save","btn btn__cancel"],["edit","delete","save","cancel"])
 }
-// // Preview Image - OLD
-// const imagePreview = function (event) {
-//   document.getElementById("input__image__warning").innerHTML = "";
-//   document.getElementById("image-preview").src = URL.createObjectURL(event.target.files[0]);
-// }
-
+// Delte Table
+const deleteTable = function(btnId) {
+  id = btnId.split('_');
+  for(i = 0; i < inputSet.length; i++) {
+    if (id[0] == inputSet[i].key) {
+      inputSet.splice(i,1);
+    }
+  }
+  if (inputSet.length >= 1) {
+    let deleteElement = document.getElementsByClassName("output__content");
+    while (deleteElement[0]) {
+    deleteElement[0].parentNode.removeChild(deleteElement[0]);
+    }
+    addElement(inputSet);
+  }
+};
 // Preview Image - NEW
 const previewImage = document.getElementById("input-image");
 const displayPreview = document.getElementById("image-preview");
