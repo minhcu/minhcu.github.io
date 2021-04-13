@@ -16,7 +16,7 @@ function addElement(array) {
   function setID(element,idList,objValue) {
     objValue[0] = document.createTextNode(i+1);
     // objValue[3] = document.createTextNode(inputSet[i].image);
-    // objValue[4] = document.createTextNode("button");
+    objValue[4] = document.createTextNode("");
     for (x = 0; x < 5; x++) {
         cell = document.createElement("div");
         row.appendChild(cell);
@@ -27,8 +27,18 @@ function addElement(array) {
     }
     // Edit Function ở trên để có thể setID cho hàng loạt thuộc tính khác
     // cell => gọi biến
-  setID("id",["number","name","category","image","action"],[i+1,inputSet[i].name,inputSet[i].category,inputSet[i].image,button]);
+  setID("id",["number","name","category","image","action"],[i+1,inputSet[i].name,inputSet[i].category,inputSet[i].image,""]);
   };
+  function setBTN(btnClass, btnId) {
+    for (x = 0; x < 4; x++) {
+    btncell = document.getElementById(array[i].key + "_" + "action");
+      btn = document.createElement("button");
+      btncell.appendChild(btn);
+      btn.setAttribute("class",btnClass[x]);
+      btn.setAttribute("id",array[i].key + "_" + btnId[x]);
+    }
+  };
+  setBTN(["btn btn__edit","btn btn__delete","btn btn__save","btn btn__cancel"],["edit","delete","save","cancel"])
 }
 // // Preview Image - OLD
 // const imagePreview = function (event) {
