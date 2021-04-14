@@ -1,3 +1,6 @@
+// Xu ly giao dien truoc roi luu data sau
+// Đã tham khảo mentor nhưng không thích làm theo mentor
+
 // Create Entity Set
 const inputSet = [];
 // Create Entity
@@ -38,6 +41,10 @@ function addElement(array) {
     setBTN(["btn btn__edit","btn btn__delete","btn btn__save","btn btn__cancel"],["edit","delete","save","cancel"],["edit()","deleteTable(id)","save()","cancel()"])
   };
 }
+// // Edit Items
+// const editItems = function(btnID) {
+//   id = btnId.split('_');
+// }
 // Delte Table
 const deleteTable = function(btnId) {
   id = btnId.split('_');
@@ -46,12 +53,17 @@ const deleteTable = function(btnId) {
       inputSet.splice(i,1);
     }
   }
+  let deleteElement = document.getElementsByClassName("output__content");
   if (inputSet.length >= 1) {
-    let deleteElement = document.getElementsByClassName("output__content");
     while (deleteElement[0]) {
     deleteElement[0].parentNode.removeChild(deleteElement[0]);
     }
     addElement(inputSet);
+  }
+  else {
+    while (deleteElement[0]) {
+      deleteElement[0].parentNode.removeChild(deleteElement[0]);
+    }
   }
 };
 // Preview Image - NEW
