@@ -4,15 +4,7 @@
 // Create Entity Set
 const inputSet = [];
 let data = JSON.parse(localStorage.getItem("data"));
-
 if (data.length >= 1) {
-  let deleteElement = document.getElementsByClassName("output__content");
-  while (deleteElement[0]) {
-  deleteElement[0].parentNode.removeChild(deleteElement[0]);
-  }
-  addElement(data);
-}
-else {
   addElement(data);
 }
 // Create Entity
@@ -42,8 +34,8 @@ function addElement(array) {
     const name = document.getElementById(array[i].key + "_" + "name-box");
     const nameInput = document.getElementById("input-name").cloneNode(true);
     const nameWarning = document.getElementById("input__item-name__warning").cloneNode(true);
-    nameInput.setAttribute("id",array[i].key + "_" + "name");
-    nameWarning.setAttribute("id",array[i].key + "_" + "name-warning");
+    nameInput.setAttribute("id",array[i].key + "_name");
+    nameWarning.setAttribute("id",array[i].key + "_name-warning");
     nameInput.setAttribute("disabled","");
     name.appendChild(nameInput);
     name.appendChild(nameWarning);
@@ -109,7 +101,7 @@ const saveItems = function(btnId,event) {
   const image = document.getElementById(imageId);
   const imageSrc = document.getElementById(id[0] + "_image-preview");
   // Validate name
-  if (!name.validity.valid) {
+  if (name === "") {
     document.getElementById(id[0] + "_name-warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
@@ -117,18 +109,18 @@ const saveItems = function(btnId,event) {
     document.getElementById(id[0] + "_name-warning").innerHTML = "";
   }
   // Validate Category
-  if (!category.validity.valid) {
+  if (category === "") {
     document.getElementById(id[0] + "_category-warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
   else {
     document.getElementById(id[0] + "_category-warning").innerHTML = "";
   }
-  if (!image.validity.valid && imageSrc.src == "") {
+  if (imageSrc.src == "") {
     document.getElementById(id[0] + "_image-warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
-  if ((name.validity.valid) && (category.validity.valid)) {
+  if ((name.validity.valid) && (category.validity.valid) && (imageSrc.src != "")) {
     data.forEach(ele => {
       if (ele.key == id[0]) {
         ele.name = name.value;
@@ -178,6 +170,8 @@ const cancelItems = function(btnId) {
           category.options[z].setAttribute("selected","");
         }
       }
+      const image = document.getElementById(ele.key + "_image-preview")
+      image.src = ele.image;
     }
   })
   document.getElementById(id[0] + "_save").style.display = "none";
@@ -245,18 +239,6 @@ previewImage.addEventListener("change", function () {
   }
 );
 
-// const convertImage = function(img) {
-//   const canvas = document.createElement("canvas");
-//   canvas.width = img.width;
-//   canvas.height = img.height;
-
-//   const ctx = canvas.getContext("2d");
-//   ctx.drawImage(img, 0, 0);
-
-//   const dataURL = canvas.toDataURL("image/png");
-//   return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-// };
-
 // Lock Category
 const selectedValue = function update() {
   let select = document.getElementById("input-category");
@@ -271,9 +253,8 @@ const submit = function inputValue (event) {
   const itemName = document.getElementById("input-name");
   const itemCategory = document.getElementById("input-category");
   const itemImage = document.getElementById("input-image");
-
   // Validate name
-  if (!itemName.validity.valid) {
+  if (itemName.value === "") {
     document.getElementById("input__item-name__warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
@@ -282,7 +263,7 @@ const submit = function inputValue (event) {
   }
 
   // Validate Category
-  if (!itemCategory.validity.valid) {
+  if (itemCategory.value === "") {
     document.getElementById("input__item-category__warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
@@ -291,7 +272,7 @@ const submit = function inputValue (event) {
   }
 
   // Validate Image
-  if ((!itemImage.validity.valid) && (file.type.indexOf('image') < 0)) {
+  if (itemImage.value === "") {
     document.getElementById("input__image__warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
@@ -304,30 +285,16 @@ const submit = function inputValue (event) {
     }
     // inputSet.push(input);
     // localStorage.setItem("data",JSON.stringify(inputSet));
-    
-  }
-  if (data.length < 1) {
-    inputSet.push(input);
-    localStorage.setItem("data",JSON.stringify(inputSet));
-  }
-  else {
-    data.push(input);
-    localStorage.setItem("data",JSON.stringify(data));
+      data.push(input);
+      localStorage.setItem("data",JSON.stringify(data));
   }
   // Create Table
-  const data = JSON.parse(localStorage.getItem("data"));
   if (data.length >= 1) {
     let deleteElement = document.getElementsByClassName("output__content");
     while (deleteElement[0]) {
     deleteElement[0].parentNode.removeChild(deleteElement[0]);
     }
     addElement(data);
-  }
-  else if (data.length == 0) {
-    let deleteElement = document.getElementsByClassName("output__content");
-    while (deleteElement[0]) {
-    deleteElement[0].parentNode.removeChild(deleteElement[0]);
-    }
   }
   else {
     addElement(data);

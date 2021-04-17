@@ -134,3 +134,7 @@ p {
     color: black;
     opacity: 1;
 }
+
+.warning-text {
+    color: red;
+}
