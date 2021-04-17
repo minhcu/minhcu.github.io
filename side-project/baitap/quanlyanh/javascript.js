@@ -98,10 +98,9 @@ const saveItems = function(btnId,event) {
   const imageId = id[0] + "_image-input";
   const name = document.getElementById(nameId);
   const category = document.getElementById(categoryId);
-  const image = document.getElementById(imageId);
   const imageSrc = document.getElementById(id[0] + "_image-preview");
   // Validate name
-  if (name === "") {
+  if (name.value === "") {
     document.getElementById(id[0] + "_name-warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
@@ -109,7 +108,7 @@ const saveItems = function(btnId,event) {
     document.getElementById(id[0] + "_name-warning").innerHTML = "";
   }
   // Validate Category
-  if (category === "") {
+  if (category.value === "") {
     document.getElementById(id[0] + "_category-warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
