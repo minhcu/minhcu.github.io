@@ -66,9 +66,15 @@ function addElement(array) {
 
     // Image
     const image = document.getElementById(array[i].key + "_" + "image");
-    const imageURL = document.createElement("img")
+    const imageInput = document.getElementById("input-image").cloneNode(true);
+    image.appendChild(imageInput);
+    imageInput.setAttribute("id",array[i].key + "_image-input");
+    imageInput.style.display = "none";
+    const imageURL = document.createElement("img");
     image.appendChild(imageURL);
     imageURL.setAttribute("src",array[i].image);
+    imageURL.setAttribute("id",array[i].key + "_image-preview");
+    imageInput.setAttribute("onclick","changeImageEdit(id)");
 
     // Create Button
     function setBTN(btnClass, btnId, jsfunction) {
@@ -94,8 +100,11 @@ const saveItems = function(btnId,event) {
   id = btnId.split('_');
   nameId = id[0] + "_name";
   categoryId = id[0] + "_category";
+  imageId = id[0] + "_image-input";
   const name = document.getElementById(nameId);
   const category = document.getElementById(categoryId);
+  const image = document.getElementById(imageId);
+  const imageSrc = document.getElementById(id[0] + "_image-preview");
   // Validate name
   if (!name.validity.valid) {
     document.getElementById(id[0] + "_name-warning").innerHTML = "*Không hợp lệ";
@@ -112,11 +121,16 @@ const saveItems = function(btnId,event) {
   else {
     document.getElementById(id[0] + "_category-warning").innerHTML = "";
   }
+  if ((!image.validity.valid) && (file.type.indexOf('image') < 0)) {
+    // document.getElementById("input__image__warning").innerHTML = "*Không hợp lệ";
+    event.preventDefault();
+  }
   if ((name.validity.valid) && (category.validity.valid)) {
     data.forEach(ele => {
       if (ele.key == id[0]) {
         ele.name = name.value;
         ele.category = category.value;
+        ele.image = imageSrc.src;
       }
     });
     localStorage.setItem("data",JSON.stringify(data));
@@ -124,6 +138,7 @@ const saveItems = function(btnId,event) {
     category.setAttribute("disabled","");
     document.getElementById(id[0] + "_save").style.display = "none";
     document.getElementById(id[0] + "_cancel").style.display = "none";
+    document.getElementById(id[0] + "_image-input").style.display = "none";
     document.getElementById(id[0] + "_edit").style.display = "inline";
     document.getElementById(id[0] + "_delete").style.display = "inline";
   }
@@ -138,6 +153,7 @@ const editItems = function(btnId) {
   document.getElementById(categoryId).removeAttribute("disabled");
   document.getElementById(id[0] + "_save").style.display = "inline";
   document.getElementById(id[0] + "_cancel").style.display = "inline";
+  document.getElementById(id[0] + "_image-input").style.display = "inline";
   document.getElementById(id[0] + "_edit").style.display = "none";
   document.getElementById(id[0] + "_delete").style.display = "none";
 }
@@ -163,6 +179,7 @@ const cancelItems = function(btnId) {
   })
   document.getElementById(id[0] + "_save").style.display = "none";
   document.getElementById(id[0] + "_cancel").style.display = "none";
+  document.getElementById(id[0] + "_image-input").style.display = "none";
   document.getElementById(id[0] + "_edit").style.display = "inline";
   document.getElementById(id[0] + "_delete").style.display = "inline";
 }
@@ -189,10 +206,29 @@ const deleteTable = function(btnId) {
     }
   }
 };
+
+// Preview Image - EDIT MODE
+const changeImageEdit = function (btnId) {
+  id = btnId.split('_');
+  const editPreview = document.getElementById(id[0] + "_image-input");
+  const editDisplay = document.getElementById(id[0] + "_image-preview");
+  editPreview.addEventListener("change", function () {
+      let inputFile = this.files[0];
+      if (inputFile.type.indexOf('image') < 0) {
+        return;
+      }
+      const whyFileReader = new FileReader();
+      whyFileReader.onload = function() {
+        editDisplay.src = whyFileReader.result;
+      }
+      whyFileReader.readAsDataURL(inputFile);
+    }
+  );
+}
+
 // Preview Image - NEW
 const previewImage = document.getElementById("input-image");
 const displayPreview = document.getElementById("image-preview");
-
 previewImage.addEventListener("change", function () {
     let inputFile = this.files[0];
     if (inputFile.type.indexOf('image') < 0) {
