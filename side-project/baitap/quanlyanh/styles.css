@@ -1,5 +1,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/side-project/baitap/quanlyanh/hmh.658d090.jpg");
+    background-size: 200px;
+}
+* {
+    box-sizing: border-box;
 }
 p {
     margin: 0;
@@ -10,8 +15,14 @@ p {
     max-width: 1200px;
     margin: auto;
     border: solid 1px black;
-    padding: 30px;
     margin-bottom: 50px;
+    background-color: white;
+}
+.input-container {
+    padding: 30px;
+}
+.output-container {
+    border-radius: 10px;
 }
 .input_item-btn,
 .input__item-name-block,
@@ -25,27 +36,43 @@ p {
     display: grid;
     grid-template-columns: repeat(4,1fr);
 }
+.input__title {
+    font-weight: 700;
+    padding: 2px;
+    margin: 2px;
+}
+.input-items {
+    width: 200px;
+    cursor: pointer;
+}
 .output__header,
 .output__content {
     display: grid;
-    grid-template-columns: 10% repeat(2,1fr) 30% 20%;
+    grid-template-columns: 6% repeat(2,1fr) 30% 20%;
     gap: 1rem;
+    padding: 30px;
 }
 .output__header{
     font-weight: 700;
     border-bottom: solid 1px black;
-    padding: 0 20px 10px 20px;
 }
 .output__content {
-    margin: 10px 0;
-    padding: 0 20px;
+    border-bottom: solid 1px black;
+}
+.output__content:hover {
+    cursor: pointer;
+    background-color: #f4f4f7;
 }
 .output-items {
-    padding: 10px;
+    align-self: center;
+}
+.output-items .input-items {
+    width: 150px;
 }
 .input__image--preview {
     max-height: 100px;
 }
+/* Submit BTN */
 .btn {
     padding: 10px 15px;
     font-weight: 700;
@@ -54,23 +81,44 @@ p {
     border: none;
     border-radius: .25rem;
     cursor: pointer;
+    margin: 5px;
 }
 .input__btn {
     background-color: #007bff;
     padding: 15px 25px;
 }
+.input__btn:hover {
+    background-color: #0069d9;
+}
+/* Edit BTN */
 .btn__edit {
     background-color: #007bff;
 }
+.btn__edit:hover {
+    background-color: #0069d9;
+}
+/* Delte BTN */
 .btn__delete {
     background-color: #dc3545;;
 }
+.btn__delete:hover {
+    background-color: #c82333;
+}
+/* Save BTN */
 .btn__save {
     background-color: #28a745;
 }
+.btn__save:hover {
+    background-color: #218838;
+}
+/* Cancel BTN */
 .btn__cancel{
     background-color: #6c757d;
 }
+.btn__cancel:hover {
+    background-color: #5a6268;
+}
+
 .input-items {
     padding: 10px 20px;
 }

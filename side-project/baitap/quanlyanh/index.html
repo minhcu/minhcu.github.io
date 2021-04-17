@@ -11,26 +11,26 @@
     <div class="input-container">
         <div class="input__item-name-block">
             <label for="input__item-name">
-                <p class="input__item-name__title">Item Name</p>
+                <p class="input__title">Item Name</p>
                 <input class="input-items" type="text" id="input-name" maxlength="10" required>
             </label>
-            <p id="input__item-name__warning"></p>
+            <p class="warning-text" id="input__item-name__warning"></p>
         </div>
         <div class="input__item-category-block">
             <label for="input__category">
-                <p class="input__category__title">Category</p>
-                <select class="input-items" name="" id="input-category" onchange="selectedValue()" required>
+                <p class="input__title">Category</p>
+                <select class="input-items" id="input-category" onchange="selectedValue()" required>
                     <option value="">Uncagetoried</option>
-                    <option value="Category1">Category 1</option>
-                    <option value="Category2">Category 2</option>
-                    <option value="Category3">Category 3</option>
+                    <option value="Category 1">Category 1</option>
+                    <option value="Category 2">Category 2</option>
+                    <option value="Category 3">Category 3</option>
                 </select>
             </label>
-            <p id="input__item-category__warning"></p>
+            <p class="warning-text" id="input__item-category__warning"></p>
         </div>
         <div class="input__image-block">
             <label for="input__image">
-                <p class="input__image__title"></p>
+                <p class="input__title">Image</p>
                 <input type="file" id="input-image" required>
             </label>
             <p id="input__image__warning"></p>
@@ -56,14 +56,6 @@
             </div>
             <div class="output__content__item-action">
                 Action
-                <div class="btn-box" id="btn-1">
-                    <button class="btn btn__edit">Edit</button>
-                    <button class="btn btn__delete">Delete</button>
-                </div>
-                <div class="btn-box">
-                    <button class="btn btn__save">Save</button>
-                    <button class="btn btn__cancel">Cancel</button>
-                </div>
             </div>
         </div>
     </div>
