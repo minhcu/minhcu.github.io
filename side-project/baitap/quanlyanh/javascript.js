@@ -3,7 +3,7 @@
 
 // Create Entity Set
 const inputSet = [];
-data = JSON.parse(localStorage.getItem("data"));
+let data = JSON.parse(localStorage.getItem("data"));
 
 if (data.length >= 1) {
   let deleteElement = document.getElementsByClassName("output__content");
@@ -100,10 +100,10 @@ function addElement(array) {
 
 // Save Items Button
 const saveItems = function(btnId,event) {
-  id = btnId.split('_');
-  nameId = id[0] + "_name";
-  categoryId = id[0] + "_category";
-  imageId = id[0] + "_image-input";
+  const id = btnId.split('_');
+  const nameId = id[0] + "_name";
+  const categoryId = id[0] + "_category";
+  const imageId = id[0] + "_image-input";
   const name = document.getElementById(nameId);
   const category = document.getElementById(categoryId);
   const image = document.getElementById(imageId);
@@ -149,9 +149,9 @@ const saveItems = function(btnId,event) {
 
 // Edit Items Button
 const editItems = function(btnId) {
-  id = btnId.split('_');
-  nameId = id[0] + "_name";
-  categoryId = id[0] + "_category";
+  const id = btnId.split('_');
+  const nameId = id[0] + "_name";
+  const categoryId = id[0] + "_category";
   document.getElementById(nameId).removeAttribute("disabled");
   document.getElementById(categoryId).removeAttribute("disabled");
   document.getElementById(id[0] + "_save").style.display = "inline";
@@ -163,7 +163,7 @@ const editItems = function(btnId) {
 
 // Cancel Items Button
 const cancelItems = function(btnId) {
-  id = btnId.split('_');
+  const id = btnId.split('_');
   data.forEach(ele => {
     if (ele.key == id[0]) {
       const name = document.getElementById(ele.key + "_" + "name");
@@ -189,7 +189,7 @@ const cancelItems = function(btnId) {
 
 // Delete Items Button
 const deleteTable = function(btnId) {
-  id = btnId.split('_');
+  const id = btnId.split('_');
   for(i = 0; i < data.length; i++) {
     if (id[0] == data[i].key) {
       data.splice(i,1);
@@ -212,7 +212,7 @@ const deleteTable = function(btnId) {
 
 // Preview Image - EDIT MODE
 const changeImageEdit = function (btnId) {
-  id = btnId.split('_');
+  const id = btnId.split('_');
   const editPreview = document.getElementById(id[0] + "_image-input");
   const editDisplay = document.getElementById(id[0] + "_image-preview");
   editPreview.addEventListener("change", function () {
