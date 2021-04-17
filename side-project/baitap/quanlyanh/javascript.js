@@ -67,6 +67,7 @@ function addElement(array) {
     // Image
     const image = document.getElementById(array[i].key + "_" + "image");
     const imageInput = document.getElementById("input-image").cloneNode(true);
+    const imageWarning = document.getElementById("input__image__warning").cloneNode(true);
     image.appendChild(imageInput);
     imageInput.setAttribute("id",array[i].key + "_image-input");
     imageInput.style.display = "none";
@@ -75,6 +76,8 @@ function addElement(array) {
     imageURL.setAttribute("src",array[i].image);
     imageURL.setAttribute("id",array[i].key + "_image-preview");
     imageInput.setAttribute("onclick","changeImageEdit(id)");
+    image.appendChild(imageWarning);
+    imageWarning.setAttribute("id",array[i].key + "_image-warning");
 
     // Create Button
     function setBTN(btnClass, btnId, jsfunction) {
@@ -121,8 +124,8 @@ const saveItems = function(btnId,event) {
   else {
     document.getElementById(id[0] + "_category-warning").innerHTML = "";
   }
-  if ((!image.validity.valid) && (file.type.indexOf('image') < 0)) {
-    // document.getElementById("input__image__warning").innerHTML = "*Không hợp lệ";
+  if (!image.validity.valid && imageSrc.src == "") {
+    document.getElementById(id[0] + "_image-warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
   if ((name.validity.valid) && (category.validity.valid)) {
@@ -301,17 +304,30 @@ const submit = function inputValue (event) {
     }
     // inputSet.push(input);
     // localStorage.setItem("data",JSON.stringify(inputSet));
+    
+  }
+  if (data.length < 1) {
+    inputSet.push(input);
+    localStorage.setItem("data",JSON.stringify(inputSet));
+  }
+  else {
     data.push(input);
     localStorage.setItem("data",JSON.stringify(data));
   }
-  
   // Create Table
+  const data = JSON.parse(localStorage.getItem("data"));
   if (data.length >= 1) {
     let deleteElement = document.getElementsByClassName("output__content");
     while (deleteElement[0]) {
     deleteElement[0].parentNode.removeChild(deleteElement[0]);
     }
     addElement(data);
+  }
+  else if (data.length == 0) {
+    let deleteElement = document.getElementsByClassName("output__content");
+    while (deleteElement[0]) {
+    deleteElement[0].parentNode.removeChild(deleteElement[0]);
+    }
   }
   else {
     addElement(data);

@@ -122,3 +122,8 @@ p {
 .input-items {
     padding: 10px 20px;
 }
+
+.input-items:disabled {
+    color: black;
+    opacity: 1;
+}
