@@ -1,14 +1,11 @@
 // Xu ly giao dien truoc roi luu data sau
 // Đã tham khảo mentor nhưng không thích làm theo mentor
 
-// Create Entity Set
-const inputSet = [];
-let data = JSON.parse(localStorage.getItem("data"));
+// Get Data
+const data = JSON.parse(localStorage.getItem("data")) || [];
 if (data.length >= 1) {
   addElement(data);
 }
-// Create Entity
-let input = {};
 // Create output-container
 function addElement(array) {
   for (i = 0; i < array.length; i++) {
@@ -33,9 +30,10 @@ function addElement(array) {
     // Name
     const name = document.getElementById(array[i].key + "_" + "name-box");
     const nameInput = document.getElementById("input-name").cloneNode(true);
-    const nameWarning = document.getElementById("input__item-name__warning").cloneNode(true);
+    const nameWarning = document.createElement('p');
     nameInput.setAttribute("id",array[i].key + "_name");
     nameWarning.setAttribute("id",array[i].key + "_name-warning");
+    nameWarning.setAttribute("class","warning-text");
     nameInput.setAttribute("disabled","");
     name.appendChild(nameInput);
     name.appendChild(nameWarning);
@@ -44,11 +42,12 @@ function addElement(array) {
     // Category
     const category = document.getElementById(array[i].key + "_" + "category-box");
     const categoryInput = document.getElementById("input-category").cloneNode(true);
-    const categoryWarning = document.getElementById("input__item-category__warning").cloneNode(true);
+    const categoryWarning = document.createElement('p');
     category.appendChild(categoryInput);
     category.appendChild(categoryWarning);
     categoryInput.setAttribute("id",array[i].key + "_" + "category");
     categoryWarning.setAttribute("id",array[i].key + "_" + "category-warning");
+    categoryWarning.setAttribute("class","warning-text");
     categoryInput.setAttribute("disabled","");
     for (z = 0; z < 4; z++) {
       if (categoryInput.options[z].value === array[i].category) {
@@ -59,7 +58,7 @@ function addElement(array) {
     // Image
     const image = document.getElementById(array[i].key + "_" + "image");
     const imageInput = document.getElementById("input-image").cloneNode(true);
-    const imageWarning = document.getElementById("input__image__warning").cloneNode(true);
+    const imageWarning = document.createElement('p');
     image.appendChild(imageInput);
     imageInput.setAttribute("id",array[i].key + "_image-input");
     imageInput.style.display = "none";
@@ -67,9 +66,11 @@ function addElement(array) {
     image.appendChild(imageURL);
     imageURL.setAttribute("src",array[i].image);
     imageURL.setAttribute("id",array[i].key + "_image-preview");
+    imageURL.setAttribute("class","input__image--preview")
     imageInput.setAttribute("onclick","changeImageEdit(id)");
     image.appendChild(imageWarning);
     imageWarning.setAttribute("id",array[i].key + "_image-warning");
+    imageWarning.setAttribute("class","warning-text");
 
     // Create Button
     function setBTN(btnClass, btnId, jsfunction) {
@@ -248,7 +249,7 @@ const selectedValue = function update() {
 }
 
 // Validate & Create Table
-const submit = function inputValue (event) {
+const submit = function inputValue(event) {
   const itemName = document.getElementById("input-name");
   const itemCategory = document.getElementById("input-category");
   const itemImage = document.getElementById("input-image");
@@ -260,7 +261,6 @@ const submit = function inputValue (event) {
   else {
     document.getElementById("input__item-name__warning").innerHTML = "";
   }
-
   // Validate Category
   if (itemCategory.value === "") {
     document.getElementById("input__item-category__warning").innerHTML = "*Không hợp lệ";
@@ -269,33 +269,32 @@ const submit = function inputValue (event) {
   else {
     document.getElementById("input__item-category__warning").innerHTML = "";
   }
-
   // Validate Image
   if (itemImage.value === "") {
     document.getElementById("input__image__warning").innerHTML = "*Không hợp lệ";
     event.preventDefault();
   }
-  if ((itemName.validity.valid) && (itemCategory.validity.valid) && (itemImage.validity.valid)) {
-    input = {
+  else {
+    document.getElementById("input__item-category__warning").innerHTML = "";
+  }
+  if ((itemName.value !== "") && (itemCategory !== "") && (itemImage.value !== "")) {
+    const input = {
       key: Math.random(),
       name: itemName.value,
       category: itemCategory.value,
       image: displayPreview.src,
     }
-    // inputSet.push(input);
-    // localStorage.setItem("data",JSON.stringify(inputSet));
-      data.push(input);
-      localStorage.setItem("data",JSON.stringify(data));
-  }
-  // Create Table
-  if (data.length >= 1) {
-    let deleteElement = document.getElementsByClassName("output__content");
-    while (deleteElement[0]) {
-    deleteElement[0].parentNode.removeChild(deleteElement[0]);
+    data.push(input);
+    localStorage.setItem("data",JSON.stringify(data));
+    if (data.length >= 1) {
+      let deleteElement = document.getElementsByClassName("output__content");
+      while (deleteElement[0]) {
+      deleteElement[0].parentNode.removeChild(deleteElement[0]);
+      }
+      addElement(data);
     }
-    addElement(data);
-  }
-  else {
-    addElement(data);
+    else {
+      addElement(data);
+    }
   }
 }
