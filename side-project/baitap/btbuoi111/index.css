@@ -1,0 +1,84 @@
+.rectangle {
+    width: 9px;
+    height: 30px;
+    background-color: #FFF;
+    margin: 0 1px;
+    animation: loading 1.3s infinite;
+}
+.rec2 {
+    animation-delay: .1s;
+}
+.rec3 {
+    animation-delay: .2s;
+}
+.rec4 {
+    animation-delay: .3s;
+}
+.rec5 {
+    animation-delay: .4s;
+}
+.container {
+    display: flex;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    background-color: #444;
+}
+@keyframes loading {
+    0% {transform: scaleY(1.0);}
+    20% {transform: scaleY(2);}  
+    60% {transform: scaleY(1.0);}
+    100% {transform: scaleY(1.0);}
+}
+
+
+/* 2 */
+.vuong {
+    width: 30px;
+    height: 30px;
+    background-color: #FFF;
+    animation: loading2 1.2s infinite;
+    
+}
+@keyframes loading2 {
+    0% {transform: scale(0,0);}
+    /* 25% {transform: scale(0.5,0.5);} */
+    50% {transform: scale(1,1);}
+    /* 75% {transform: scale(0.5,0.5);} */
+    /* 100% {transform: scale(0,0)} */
+}
+.v31 {
+    animation-delay: .0s;
+}
+.v32, .v21 {
+    animation-delay: .1s;
+}
+.v11, .v22, .v33 {
+    animation-delay: .2s;
+}
+.v12, .v23 {
+    animation-delay: .3s;
+}
+.v13 {
+    /* animation: loading3 1.2s .4s infinite; */
+    animation-delay: .4s;
+}
+.per {
+    perspective: 800px;
+}
+.o {
+    width: 100px;
+    height: 100px;
+    background-color: #FFF;
+    animation: spin 1s linear infinite;
+    
+}
+@keyframes spin {
+    0% {
+        transform: rotate3d(0,0,1,180deg)
+                    perspective(600px);
+    }
+    50% {transform: rotate3d(0,1,0,180deg) perspective(600px);}
+}
