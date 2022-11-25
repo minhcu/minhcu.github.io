@@ -5,7 +5,7 @@ body{
 }
 .section-1{
     height: 800px;
-    background-image: url("../img/btbuoi4-1.jpg");
+    background-image: url("./btbuoi4-1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
